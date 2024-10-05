@@ -1,0 +1,39 @@
+name: Build App windows
+
+on:
+  workflow_dispatch: { }
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  buildForWindowsBasedPlatforms:
+    name: Build for ${{ matrix.targetPlatform }}
+    runs-on: [ self-hosted, Windows ]
+    strategy:
+      fail-fast: false
+      matrix:
+        targetPlatform:
+          - StandaloneWindows64 # Build a Windows 64-bit standalone.
+        buildMethod:
+          - BuildApp.Build
+        unityPath:
+          - '"C:\Program Files\Unity\Hub\Editor\2020.3.33f1\Editor\Unity.exe"' #使用しているUnityのバージョンのパス
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          clean: false
+          submodules: recursive
+
+      - name: Run Build
+        run: |
+          ${{ matrix.unityPath }} -batchmode -quit -projectPath . -buildTarget ${{matrix.targetPlatform}} -executeMethod ${{ matrix.buildMethod }} -logFile -
+
+      - name: Upload App
+        uses: actions/upload-artifact@v3
+        with:
+          name: App_Develop
+          path: Builds/App/
+          retention-days: 7
+

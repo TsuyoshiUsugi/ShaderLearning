@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Unlit_Glitch
-  m_Shader: {fileID: 4800000, guid: cdb99f956d2b8a942ba7ab55ff2163e4, type: 3}
+  m_Name: Unlit_Glitch2
+  m_Shader: {fileID: 4800000, guid: cc1c3eb26945df443b75c5b7ea62f89c, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -24,14 +24,12 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 10309, guid: 0000000000000000f000000000000000, type: 0}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - _BlockScale: 10
-    - _FrameRate: 27.4
-    - _Frequency: 0.928
     - _GlitchIntensity: 0.1
     - _NoiseSpeed: 10
     m_Colors: []
